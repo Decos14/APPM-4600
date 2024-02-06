@@ -68,15 +68,95 @@ def bisection(f,a,b,tol,Nmax):
     return [astar,ier] 
 
 # use routines    
-f = lambda x: x**3+x-4
-a = 1
-b = 4
+f = lambda x: (x**2)*(x-1)
+a = 0.5
+b = 2
 
 Nmax = 100
 tol = 1e-3
-
+print("f(x) = (x^2)(x-1)")
+print("(a,b) = (0.5,2)")
 [astar,ier] = bisection(f,a,b,tol,Nmax)
 print('the approximate root is',astar)
 print('the error message reads:',ier)
+print()
 
+a = -1
+b = 0.5
+
+Nmax = 100
+tol = 1e-3
+print("f(x) = (x^2)(x-1)")
+print("(a,b) = (-1,0.5)")
+[astar,ier] = bisection(f,a,b,tol,Nmax)
+print('the approximate root is',astar)
+print('the error message reads:',ier)
+print()
+
+a = -1
+b = 2
+
+Nmax = 100
+tol = 1e-3
+print("f(x) = (x^2)(x-1)")
+print("(a,b) = (-1,2)")
+[astar,ier] = bisection(f,a,b,tol,Nmax)
+print('the approximate root is',astar)
+print('the error message reads:',ier)
+print()
+
+# use routines    
+f = lambda x: (x-1)*(x-3)*(x-5)
+a = 0
+b = 2.4
+
+Nmax = 100
+tol = 1e-3
+print("f(x) = (x-1)(x-3)(x-5)")
+print("(a,b) = (0,2.4)")
+[astar,ier] = bisection(f,a,b,tol,Nmax)
+print('the approximate root is',astar)
+print('the error message reads:',ier)
+print()
+
+# use routines    
+f = lambda x: (x-1)*(x-3)*(x-1)
+a = 0
+b = 2
+
+Nmax = 100
+tol = 1e-3
+print("f(x) = ((x-1)^2)(x-3)")
+print("(a,b) = (0,2)")
+[astar,ier] = bisection(f,a,b,tol,Nmax)
+print('the approximate root is',astar)
+print('the error message reads:',ier)
+print()
+
+# use routines    
+f = lambda x: np.sin(x)
+a = 0
+b = 0.1
+
+Nmax = 100
+tol = 1e-3
+print("f(x) = sin(x)")
+print("(a,b) = (0,0.1)")
+[astar,ier] = bisection(f,a,b,tol,Nmax)
+print('the approximate root is',astar)
+print('the error message reads:',ier)
+print()
+
+f = lambda x: np.sin(x)
+a = 0.5
+b = 3.0*np.pi/4.0
+
+Nmax = 100
+tol = 1e-3
+print("f(x) = sin(x)")
+print("(a,b) = (0,0.1)")
+[astar,ier] = bisection(f,a,b,tol,Nmax)
+print('the approximate root is',astar)
+print('the error message reads:',ier)
+print()
 

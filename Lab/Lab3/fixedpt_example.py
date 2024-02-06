@@ -17,36 +17,48 @@ def fixedpt(f,x0,tol,Nmax):
           ier = 0
           return [xstar,ier]
        x0 = x1
-
     xstar = x1
     ier = 1
     return [xstar, ier]
     
 
 # use routines 
-f1 = lambda x: 1+0.5*np.sin(x)
-''' 
-fixed point is alpha1 = 1.4987....
-'''
+f1 = lambda x: x*(1 + ((7-(x**5))/(x**2)))**3
 
-f2 = lambda x: 3+2*np.sin(x)
-''' 
-fixed point is alpha2 = 3.09... 
-'''
+f2 = lambda x: x - ((x**5-7)/(x**2))
 
-Nmax = 100
-tol = 1e-6
+f3 = lambda x: x - ((x**5-7)/(5*(x**4)))
+
+f4 = lambda x: x - ((x**5-7)/(12))
+
+Nmax = 1000
+tol = 1e-10
 
 ''' test f1 '''
-x0 = 0.0
-[xstar,ier] = fixedpt(f1,x0,tol,Nmax)
-print('the approximate fixed point is:',xstar)
-print('f1(xstar):',f1(xstar))
-print('Error message reads:',ier)
+#x0 = 1
+#[xstar,ier] = fixedpt(f1,x0,tol,Nmax)
+#print('the approximate fixed point is:',xstar)
+#print('f1(xstar):',f1(xstar))
+#print('Error message reads:',ier)
+print("f1: Error, Fixed Point Will Not Work, area where the absolute value is less than 1 does not contain the fixed Point")
+
     
 ''' test f2 '''
-x0 = 0.0
-[xstar,ier] = fixedpt(f2,x0,tol,Nmax)
+#x0 = 1
+#[xstar,ier] = fixedpt(f2,x0,tol,Nmax)
+#print('the approximate fixed point is:',xstar)
+#print('f2(xstar):',f2(xstar))
+#print('Error message reads:',ier)
+print("f2: Error, Fixed Point Will Not Work, area where the absolute value is less than 1 does not contain the fixed Point")
+
+x0 = 1
+[xstar,ier] = fixedpt(f3,x0,tol,Nmax)
 print('the approximate fixed point is:',xstar)
-print('f2(xstar):',f2(xstar))
+print('f3(xstar):',f2(xstar))
+print('Error message reads:',ier)
+
+x0 = 1
+[xstar,ier] = fixedpt(f4,x0,tol,Nmax)
+print('the approximate fixed point is:',xstar)
+print('f4(xstar):',f2(xstar))
 print('Error message reads:',ier)
