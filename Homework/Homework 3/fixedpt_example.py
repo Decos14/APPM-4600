@@ -24,22 +24,20 @@ def fixedpt(f,x0,tol,Nmax):
     
 
 # use routines 
-x0 = -0.89835
-tol = (10**(-11))
-Nmax = 1000
-f = lambda x: -np.sin(2*x) + 5.0*x/4.0 - 3.0/4.0
+x0 = 2.5
+tol = (10**(-10))
+Nmax = 30
+f = lambda x: x - (((x**2)+1)/(2*x))
 
 [xstar,ier] = fixedpt(f,x0,tol,Nmax)
 print('the approximate fixed point is:',xstar)
 print('f(xstar):',f(xstar))
 print('Error message reads:',ier)
 
-f = lambda x: x - 4*np.sin(2*x) - 3
 
-x = np.linspace(-1, 5,10000)
+x = np.linspace(1, 4,10000)
 y = f(x)
 
 plt.plot(x,y)
 plt.plot(xstar,f(xstar),'ro')
-plt.plot(x,[0 for _ in range(len(x))])
 plt.show()

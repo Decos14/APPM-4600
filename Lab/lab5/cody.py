@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+import numpy as np
 """
 Created on Tue Feb 20 09:18:55 2024
 
@@ -60,7 +60,7 @@ def bisection(f,a,b,tol,Nmax,conv):
     while (count < Nmax):
       c = 0.5*(a+b)
       fc = f(c)
-      mid = (fa+fb)/fc
+      mid = (fa+fb)/2.0
 
       if (fc ==0):
         astar = c
@@ -89,3 +89,14 @@ def bisection(f,a,b,tol,Nmax,conv):
     astar = a
     ier = 2
     return [astar,ier,count] 
+
+f = lambda x: np.exp(x**2+7*x-30)-1
+a = 2
+b = 4.5
+
+Nmax = 100
+tol = 1e-16
+[astar,ier,count] = bisection(f,a,b,tol,Nmax,[2.95,3.34])
+print('the approximate root is',astar)
+print('the error message reads:',ier)
+print('the count is:',count)
