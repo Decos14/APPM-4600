@@ -35,12 +35,14 @@ def driver():
     err2 = np.sum((slackxlist-xstar)**2,axis=1);
     plt.plot(np.arange(its),np.log10(err2[0:its]), label = "Slacker Newton");
     plt.legend()
+    plt.savefig("errors.png")
     plt.show()
     print(updates)
     new = np.array(newtxlist)
     newx = new[:,0]
     newy = new[:,1]
     plt.scatter(newx,newy)
+    plt.savefig("Newton_points.png")
 def evalF(x):
     F = np.zeros(2)
     F[0] = 4.*x[0]**2 + x[1]**2 - 4
